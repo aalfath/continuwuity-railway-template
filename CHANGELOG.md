@@ -2,6 +2,10 @@
 
 Each entry is one version of this Railway template. Breaking changes are listed first.
 
+## v26.9.4-2 (2026-11-16)
+
+- README only: added the Deploy on Railway button for the published template (`continuwuity-1`) and fixed a placeholder Railway's overview stripped. No change to the deployed service.
+
 ## v26.9.4-1 (2026-11-16)
 
 - First release: Continuwuity v26.9.4 (`ghcr.io/continuwuity/continuwuity:v26.9.4@sha256:5f21a556290df5b6eda30c7d695288f5c4b06f9529a64e2cae040297287496c3`).
