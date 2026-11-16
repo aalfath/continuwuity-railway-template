@@ -42,7 +42,7 @@ This template builds the official Continuwuity v26.9.4 image (pinned by digest) 
 | `CONTINUWUITY_WELL_KNOWN__SERVER` | `${{RAILWAY_PUBLIC_DOMAIN}}:443` | Federation on port 443 instead of 8448 |
 | `PORT` | `8008` | Port Continuwuity listens on, used by Railway's domain and health check |
 
-Fixed settings are set in the repo's `Dockerfile` (listen on `[::]:8008`, database at `/var/lib/continuwuity`, token registration on, federation on, `matrix.org` as trusted key server, client IPs from `X-Forwarded-For`, 32 database workers). Override any of them with a Railway variable of the same name; every option in the [configuration reference](https://continuwuity.org/reference/config) maps to `CONTINUWUITY_<OPTION>` (nested sections use `__`).
+Fixed settings are set in the repo's `Dockerfile` (listen on `[::]:8008`, database at `/var/lib/continuwuity`, token registration on, federation on, `matrix.org` as trusted key server, client IPs from `X-Forwarded-For`, and a small database thread pool: `CONTINUWUITY_DB_POOL_WORKERS_LIMIT=1` and `CONTINUWUITY_ROCKSDB_PARALLELISM_THREADS=4`, because the default pool sizing tries to start up to 1024 threads on Railway's large hosts and fails with `os error 11`). Override any of them with a Railway variable of the same name; every option in the [configuration reference](https://continuwuity.org/reference/config) maps to `CONTINUWUITY_<OPTION>` (nested sections use `__`).
 
 Notes:
 
